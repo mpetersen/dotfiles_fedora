@@ -20,7 +20,7 @@ function gitcd() {
 	fi
 }
 
-# launch docker container in the current directory
+# launch podman container in the current directory
 function poddy() {
   podman run -it --name poddy_$1 -v $PWD:$PWD -w $PWD $1 /bin/bash
   podman rm -if poddy_$1
@@ -28,6 +28,5 @@ function poddy() {
 
 # directory listing shortcut
 function la() {
-  echo "ls -la"
   ls -la
 }
