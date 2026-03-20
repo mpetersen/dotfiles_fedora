@@ -1,0 +1,8 @@
+#!/bin/bash
+# Prevent accidental commit of exports_private (contains secrets).
+
+if git diff --cached --name-only | grep -q "repo/exports_private"; then
+    echo "ERROR: Attempted to commit repo/exports_private, which may contain secrets."
+    echo "       Remove it from the commit with: git reset HEAD repo/exports_private"
+    exit 1
+fi

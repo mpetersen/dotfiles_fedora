@@ -6,6 +6,10 @@ target_dir=~/.bashrc.d
 # Create a file for private data
 [ -f $base_dir/repo/exports_private ] || touch $base_dir/repo/exports_private
 
+# Install git hooks
+cp $base_dir/hooks/pre-commit $base_dir/.git/hooks/pre-commit
+chmod +x $base_dir/.git/hooks/pre-commit
+
 # Ensure target dir exists
 mkdir -p $target_dir
 
