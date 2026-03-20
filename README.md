@@ -32,7 +32,7 @@ To only install the dotfiles (symlinks into `~/.bashrc.d`):
 
     ~/.dotfiles/setup.sh
 
-**WARNING:** It will remove existing dotfiles!
+> **WARNING:** It will remove existing dotfiles!
 
 ## Private data
 
