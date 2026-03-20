@@ -3,6 +3,9 @@
 base_dir=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 target_dir=~/.bashrc.d
 
+# Create a file for private data
+[ -f $base_dir/repo/exports_private ] || touch $base_dir/repo/exports_private
+
 # Ensure target dir exists
 mkdir -p $target_dir
 
