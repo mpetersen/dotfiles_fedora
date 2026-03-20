@@ -81,7 +81,8 @@ fi
 GNOME_CONFIG="$BASE_DIR/config/gnome_config.txt"
 if $RESTORE_GNOME && [ -f "$GNOME_CONFIG" ]; then
     info "Restoring GNOME configuration..."
-    dconf load / < "$GNOME_CONFIG"
+    # Filter out read-only system keys (e.g. /system/locale) before loading
+    awk '/^\[system\// { skip=1 } /^\[/ && !/^\[system\// { skip=0 } !skip' "$GNOME_CONFIG" | dconf load /
     info "GNOME config restored. You may need to log out and back in."
 elif ! $RESTORE_GNOME; then
     warn "Skipping GNOME config restore (--no-gnome)"
