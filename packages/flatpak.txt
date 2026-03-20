@@ -1,0 +1,9 @@
+# Flatpak app IDs to install from Flathub during bootstrap.
+# One app ID per line. Lines starting with # are ignored.
+
+com.bitwarden.desktop
+com.github.tchx84.Flatseal
+com.google.Chrome
+org.gnome.Geary
+org.signal.Signal
+dev.zed.Zed

@@ -6,13 +6,31 @@ To download the repository use the following command:
 
     git clone git@github.com:mpetersen/dotfiles_fedora.git && mv dotfiles_fedora ~/.dotfiles
 
-## Setup
+## WiFi (Intel MacBook)
 
-The dotfiles are stored in the `repo` directory. To setup your system use the following command:
+On an Intel MacBook, Fedora does not include Broadcom WiFi drivers out of the box. To install them:
+
+    ~/.dotfiles/install_wifi.sh
+
+See `docs/install_wifi.md` for details.
+
+## Bootstrap (new machine)
+
+To fully set up a new machine — dotfiles, apps, and GNOME configuration — run:
+
+    ~/.dotfiles/bootstrap.sh
+
+This installs DNF packages, Flatpak apps, Google Chrome, Claude Code, restores GNOME settings, and symlinks the dotfiles. Safe to re-run.
+
+To skip restoring GNOME settings:
+
+    ~/.dotfiles/bootstrap.sh --no-gnome
+
+## Dotfiles only
+
+To only install the dotfiles (symlinks into `~/.bashrc.d`):
 
     ~/.dotfiles/setup.sh
-
-This command will create a link in `~/.bashrc.d` for each file in `repo`.
 
 **WARNING:** It will remove existing dotfiles!
 

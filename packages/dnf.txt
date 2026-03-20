@@ -1,0 +1,4 @@
+# DNF packages to install during bootstrap.
+# One package name per line. Lines starting with # are ignored.
+
+gnome-tweaks
