@@ -1,0 +1,2 @@
+export PATH=/var/lib/flatpak/app/dev.zed.Zed/current/active/files/bin:$PATH
+export PATH=/home/moritz/.local/share/JetBrains/Toolbox/apps/intellij-idea/bin:$PATH
