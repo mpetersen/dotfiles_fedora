@@ -4,7 +4,7 @@
 
 To download the repository use the following command:
 
-    git clone git@github.com:mpetersen/dotfiles_fedora.git && mv dotfiles_fedora .dotfiles
+    git clone git@github.com:mpetersen/dotfiles_fedora.git && mv dotfiles_fedora ~/.dotfiles
 
 ## Setup
 
