@@ -9,6 +9,9 @@ expanded=true
 [org/freedesktop/folks]
 primary-store='eds:9d557c8853d6fef44f7e7dc7f80ecda646634637'
 
+[org/gnome/Characters]
+recent-characters=['⚠️', '⛔', '☕']
+
 [org/gnome/Contacts]
 did-initial-setup=true
 window-fullscreen=false
@@ -48,7 +51,7 @@ window-maximized=true
 window-size=(768, 600)
 
 [org/gnome/control-center]
-last-panel='system'
+last-panel='keyboard'
 window-state=(980, 640, false)
 
 [org/gnome/desktop/app-folders]
@@ -106,7 +109,7 @@ show-battery-percentage=true
 toolkit-accessibility=false
 
 [org/gnome/desktop/notifications]
-application-children=['gnome-power-panel', 'org-gnome-ptyxis', 'org-gnome-software', 'gnome-datetime-panel', 'dev-zed-zed', 'gnome-about-panel', 'org-mozilla-firefox', 'jetbrains-idea-fbffc918-0b5d-4301-b6d4-dfa122146231', 'org-gnome-evolution-alarm-notify', 'org-signal-signal', 'org-gnome-geary', 'org-freedesktop-problems-applet']
+application-children=['gnome-power-panel', 'org-gnome-ptyxis', 'org-gnome-software', 'gnome-datetime-panel', 'dev-zed-zed', 'gnome-about-panel', 'org-mozilla-firefox', 'jetbrains-idea-fbffc918-0b5d-4301-b6d4-dfa122146231', 'org-gnome-evolution-alarm-notify', 'org-signal-signal', 'org-gnome-geary', 'org-freedesktop-problems-applet', 'org-gnome-characters']
 
 [org/gnome/desktop/notifications/application/dev-zed-zed]
 application-id='dev.zed.Zed.desktop'
@@ -125,6 +128,9 @@ application-id='jetbrains-idea-fbffc918-0b5d-4301-b6d4-dfa122146231.desktop'
 
 [org/gnome/desktop/notifications/application/org-freedesktop-problems-applet]
 application-id='org.freedesktop.problems.applet.desktop'
+
+[org/gnome/desktop/notifications/application/org-gnome-characters]
+application-id='org.gnome.Characters.desktop'
 
 [org/gnome/desktop/notifications/application/org-gnome-evolution-alarm-notify]
 application-id='org.gnome.Evolution-alarm-notify.desktop'
@@ -202,8 +208,14 @@ night-light-temperature=uint32 3700
 donation-reminder-last-shown=int64 1773950503131736
 
 [org/gnome/settings-daemon/plugins/media-keys]
+custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']
 screensaver=['<Control><Super>q']
 search=['<Control>space']
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0]
+binding='<Control><Super>space'
+command='gnome-characters'
+name='Launch Characters (Emojis)'
 
 [org/gnome/shell]
 app-picker-layout=[{'org.fedoraproject.MediaWriter.desktop': <{'position': <0>}>, 'org.gnome.Contacts.desktop': <{'position': <1>}>, 'org.gnome.Weather.desktop': <{'position': <2>}>, 'org.gnome.clocks.desktop': <{'position': <3>}>, 'org.gnome.Maps.desktop': <{'position': <4>}>, 'org.gnome.SimpleScan.desktop': <{'position': <5>}>, 'org.gnome.Settings.desktop': <{'position': <6>}>, 'org.gnome.Boxes.desktop': <{'position': <7>}>, 'org.gnome.Showtime.desktop': <{'position': <8>}>, 'libreoffice-calc.desktop': <{'position': <9>}>, 'org.gnome.Snapshot.desktop': <{'position': <10>}>, 'org.gnome.Characters.desktop': <{'position': <11>}>, 'Utilities': <{'position': <12>}>, 'System': <{'position': <13>}>, 'libreoffice-impress.desktop': <{'position': <14>}>, 'org.gnome.Tour.desktop': <{'position': <15>}>, 'org.gnome.Yelp.desktop': <{'position': <16>}>, 'libreoffice-writer.desktop': <{'position': <17>}>, 'org.gnome.Ptyxis.desktop': <{'position': <18>}>}]
@@ -221,6 +233,8 @@ locations=@av []
 check-timestamp=int64 1773995029
 first-run=false
 flatpak-purge-timestamp=int64 1774001832
+install-timestamp=int64 1774014404
+packagekit-historical-updates-timestamp=uint64 1774014404
 
 [org/gnome/system/location]
 enabled=true
