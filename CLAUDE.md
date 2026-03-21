@@ -13,24 +13,33 @@ Dotfiles and machine setup scripts for Fedora Linux with a GNOME desktop (primar
 | `bootstrap.sh` | Full machine setup — run once on a new machine |
 | `setup.sh` | Dotfiles only — symlinks `repo/*` into `~/.bashrc.d/` |
 | `install_wifi.sh` | Broadcom WiFi driver setup (Intel MacBook on Fedora) |
+| `gnome_config.sh` | Selective GNOME dconf backup and restore |
 
 ## Structure
 
 - `repo/` — bash files sourced via `~/.bashrc.d/`. Every file here gets symlinked by `setup.sh`.
 - `packages/dnf.txt` and `packages/flatpak.txt` — package lists read by `bootstrap.sh`. One entry per line, `#` comments supported.
-- `config/gnome_config.txt` — GNOME settings snapshot, created via `dconf dump /` and restored via `dconf load /`.
+- `config/dconf*.config` — GNOME settings snapshots managed by `gnome_config.sh`, one file per dconf namespace.
 - `docs/` — human-readable setup guides (WiFi, app list, config backup).
 
 ## GNOME config backup
 
 ```bash
 cd ~/.dotfiles && \
-  dconf dump / > config/gnome_config.txt && \
-  git add config/gnome_config.txt && \
+  ./gnome_config.sh backup && \
+  git add config/dconf*.config && \
   git commit -m "GNOME configuration backup $(date +"%Y-%m-%d %H:%M:%S")" && \
   git push && \
   cd -
 ```
+
+To restore on a new machine:
+
+```bash
+~/.dotfiles/gnome_config.sh restore
+```
+
+The script selectively backs up portable user preferences (keyboard layout, dark mode, keybindings, terminal settings, etc.) and excludes PII (calendar event data, contacts), system-only settings (GDM login screen), and volatile state (window sizes, timestamps).
 
 ## Private data
 

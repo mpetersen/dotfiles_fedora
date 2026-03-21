@@ -78,16 +78,12 @@ if [ ! -d "$GITROOT" ]; then
 fi
 
 # ── 7. GNOME configuration ─────────────────────────────────────────────────────
-GNOME_CONFIG="$BASE_DIR/config/gnome_config.txt"
-if $RESTORE_GNOME && [ -f "$GNOME_CONFIG" ]; then
+if $RESTORE_GNOME; then
     info "Restoring GNOME configuration..."
-    # Filter out read-only system keys (e.g. /system/locale) before loading
-    awk '/^\[system\// { skip=1 } /^\[/ && !/^\[system\// { skip=0 } !skip' "$GNOME_CONFIG" | dconf load /
+    bash "$BASE_DIR/gnome_config.sh" restore
     info "GNOME config restored. You may need to log out and back in."
-elif ! $RESTORE_GNOME; then
-    warn "Skipping GNOME config restore (--no-gnome)"
 else
-    warn "No GNOME config found at $GNOME_CONFIG, skipping"
+    warn "Skipping GNOME config restore (--no-gnome)"
 fi
 
 # ── 8. Manual steps reminder ───────────────────────────────────────────────────
