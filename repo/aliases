@@ -22,7 +22,9 @@ function gitcd() {
 
 # launch podman container in the current directory
 function poddy() {
-  podman run -it --name poddy_$1 -v $PWD:$PWD -w $PWD $1 /bin/bash
+  IMAGE=$1
+  NAME="${2:-$1}"
+  podman run -it --name poddy_$NAME -v $PWD:$PWD:z -w $PWD $IMAGE /bin/bash
   podman rm -if poddy_$1
 }
 
